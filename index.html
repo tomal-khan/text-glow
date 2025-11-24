@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Text Glow</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text-Glow</title>
     <link rel="stylesheet" href="script.css" />
   </head>
 
   <body>
     <div class="phill">
-      <div class="preview-phill"></div>
-
-      <div class="text-phill">
-        <input type="text" class="inner-input" placeholder="Type here..." />
+      <!--Preview Area-->
+      <div class="preview-phill">
+        <div class="preview-text"></div>
       </div>
 
-      <button class="start-glow">Start Glow</button>
-    </div>
-    <div class="preview-phill">
-      <div class="preview-text"></div>
-    </div>
-
-    <button class="start-glow" id="pasteBtn">Paste to Preview</button>
+      <div class="text-phill">
+        <!-- Text Input -->
+        <input type="text" class="inner-input" placeholder="Type here..." />
+      </div>
+        <button class="start-glow">Start Glow</button>
+      <div class="color-picker-container">
+        <canvas id="colorWheel" width="200" height="200"></canvas>
+        <p> Selected Color: <span id="colorValue">#ffffff</span></p>
+      </div>
 
     <script src="script.js"></script>
   </body>
