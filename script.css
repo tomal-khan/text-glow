@@ -47,6 +47,8 @@ body {
   padding: 2px 5px; 
   }
 
+  
+
 .start-glow {
   background-color: rgb(255, 0, 0);
   color: white;
@@ -59,6 +61,20 @@ body {
   position: absolute; 
   top: 70px; 
   left: 17px;
+  }
+
+  .copy {
+  background-color: rgb(0, 128, 255);
+  color: white;
+  padding: 5px 10px;
+  border: 2px solid white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 16px;
+  position: absolute; 
+  top: 73px; 
+  left: 230px;
   }
 
 #colorWheel {
@@ -81,5 +97,5 @@ body {
 
   ::selection {
   background: rgba(0, 0, 0, 0.7);
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255, 255, 255);
   }

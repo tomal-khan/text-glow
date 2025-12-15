@@ -81,5 +81,32 @@ document.addEventListener("DOMContentLoaded", () => {
       applyGlow();
     }
   });
+  
+document.querySelector('.copy').addEventListener('click', (e) => {
+  const copyBtn = e.currentTarget;
+  const preview = document.querySelector('.preview-text');
+  if (!preview) return;
 
+  const text = (preview.textContent || '').trim();
+  if (!text) return;
+
+  // Encode the text and color for the URL
+  const encodedText = encodeURIComponent(text);
+  const encodedColor = selectedGlowColor.substring(1); // Remove the '#'
+  // Construct the URL for the typing SVG service
+  const svgUrl = `https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=${encodedColor}&width=435&lines=${encodedText}`;
+  
+  // Create the full Markdown snippet
+  const markdownContent = `[!Typing SVG](https://git.io/typing-svg)`;
+  
+  navigator.clipboard.writeText(markdownContent).then(() => {
+    const originalText = copyBtn.textContent;
+    copyBtn.textContent = 'Copied!';
+    setTimeout(() => {
+      copyBtn.textContent = originalText;
+    }, 2000);
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+});
 });
