@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text-Glow</title>
     <link rel="stylesheet" href="script.css" />
+    <style>
+      .preview-phill {
+        padding: 20px; /* This adds the inner margin */
+      }
+    </style>
   </head> 
 
   <body>
@@ -16,13 +21,39 @@
 
       <div class="text-phill">
         <!-- Text Input -->
-        <input type="text" class="inner-input" placeholder="Type here..." />
+        <input type="text" class="inner-input" placeholder="Type here...                                                   maxlength(1080character)" maxlength="1080" />
+        <span id="info-btn">ℹ️</span>
       </div>
-        <button class="start-glow">Start Glow</button>
-        <button class="copy">copy</button>
+      <div class="controls-container">
+        <button class="btn start-glow">Start Glow</button>
+        <button class="btn copy">Copy</button>
+        <button class="btn toggle-space-btn">Disable Space</button>
+        <button class="btn clear-btn">Clear</button>
+      </div>
       <div class="color-picker-container">
         <canvas id="colorWheel" width="200" height="200"></canvas>
-        <p> Selected Color: <span id="colorValue">#ffffff</span></p>
+        <p>Selected Color: <span id="colorValue">#ffffff</span></p>
+      </div>
+
+      <!-- Info Phill for Shortcuts -->
+      <div id="info-phill" class="info-phill">
+        <h2>Keyboard Shortcuts</h2>
+        <ul>
+            <li><strong>Enter:</strong> Apply glow to the current text.</li>
+            <li><strong>Ctrl + Backspace:</strong> Clear all text from input and preview.</li>
+            <li><strong>Ctrl + I:</strong> opens information page.</li>
+            <li><strong>Ctrl + J:</strong> disables and enables space before text.</li>
+            <li><strong>Ctrl + 1</strong> Select a preset color (red)</li>
+            <li><strong>Ctrl + 2</strong> Select a preset color (blue)</li>
+            <li><strong>Ctrl + 3</strong> Select a preset color (green)</li>
+            <li><strong>Ctrl + 4</strong> Select a preset color (yellow)</li>
+            <li><strong>Ctrl + 5</strong> Select a preset color (cyan)</li>
+            <li><strong>Ctrl + 6</strong> Select a preset color (orange)</li>
+            <li><strong>Ctrl + 7</strong> Select a preset color (purple)</li>
+            <li><strong>Ctrl + 8</strong> Select a preset color (pink)</li>
+            <li><strong>Ctrl + 9</strong> Select a preset color (black)</li>
+            <li><strong>Ctrl + 0:</strong> Select White.</li>
+        </ul>
       </div>
 
     <script src="script.js"></script>

@@ -18,11 +18,12 @@ body {
   background-color: rgb(0, 0, 0); 
   border-radius: 15px; 
   border: 3px solid rgb(45, 45, 45); 
-  height: 90vh; width: 125vh; 
+  height: 80vh; width: 125vh; 
   position: absolute; 
   top: 17px; 
   right: 17px; 
   text-align: justify;
+  overflow-wrap: break-word; /* Prevents text from overflowing */
   } 
   
 .text-phill {
@@ -47,7 +48,14 @@ body {
   padding: 2px 5px; 
   }
 
-  
+#info-btn {
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+}
 
 .start-glow {
   background-color: rgb(255, 0, 0);
@@ -63,6 +71,34 @@ body {
   left: 17px;
   }
 
+  .clear-btn {
+  background-color: rgb(80, 80, 80);
+  color: white;
+  padding: 5px 5px;
+  border: 1px solid white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 16px;
+  position: absolute; 
+  top: 73.8px; 
+  left: 320px; /* Positioned next to the Start Glow button */
+  }
+
+  .toggle-space-btn {
+  background-color: rgb(80, 80, 80);
+  color: white;
+  padding: 10px 5px;
+  border: 1px solid white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 16px;
+  position: absolute; 
+  top: 70px; 
+  left: 375px; /* Positioned next to the Start Glow button */
+  }
+
   .copy {
   background-color: rgb(0, 128, 255);
   color: white;
@@ -74,11 +110,11 @@ body {
   font-size: 16px;
   position: absolute; 
   top: 73px; 
-  left: 230px;
+  left: 250px;
   }
 
 #colorWheel {
-  border-radius: 15px;
+  border-radius: 50%;
   cursor: crosshair;
   border: 2px solid #ffffff;
   position: absolute;
@@ -99,3 +135,40 @@ body {
   background: rgba(0, 0, 0, 0.7);
   color: rgb(255, 255, 255);
   }
+
+/* Info Phill Styles */
+.info-phill {
+  position: absolute;
+  top: 60px; /* Position below the input phill */
+  left: 17px;
+  background-color: #1a1a1a;
+  border: 2px solid rgb(45, 45, 45);
+  border-radius: 10px;
+  padding: 15px 20px;
+  color: #f1f1f1;
+  z-index: 10;
+  width: 415px; /* Match the text-phill width */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.info-phill.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.info-phill h2 {
+  margin-top: 0; /* Ensures no extra space at the top */
+  font-size: 16px; /* Keep heading readable */
+}
+
+.info-phill ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.info-phill li {
+  margin-bottom: 10px;
+  font-size: 13px; /* Smaller font for shortcut descriptions */
+}
