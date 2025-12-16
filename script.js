@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const infoBtn = document.getElementById("info-btn");
   const infoPhill = document.getElementById("info-phill");
   const canvas = document.getElementById("colorWheel");
+  const whiteSwatch = document.getElementById("white-swatch");
+  const blackSwatch = document.getElementById("black-swatch");
 
   const ctx = canvas.getContext("2d");
   const size = canvas.width;
@@ -81,6 +83,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (input.value.trim()) {
       applyGlow();
     }
+  });
+
+  // Event listener for the white swatch
+  whiteSwatch.addEventListener("click", () => {
+    selectedGlowColor = "#FFFFFF";
+    colorValue.textContent = selectedGlowColor;
+    colorValue.style.color = selectedGlowColor;
+    if (input.value.trim()) applyGlow();
+  });
+
+  // Event listener for the black swatch
+  blackSwatch.addEventListener("click", () => {
+    selectedGlowColor = "#000000";
+    colorValue.textContent = selectedGlowColor;
+    colorValue.style.color = "#FFFFFF"; // Use white text for visibility
+    if (input.value.trim()) applyGlow();
   });
 
   function applyGlow() {
@@ -182,32 +200,4 @@ const newColor = presets[e.key];
       applyGlow(); // Instantly apply the glow with the new color
     }
   });
-
-document.querySelector('.copy').addEventListener('click', (e) => {
-  const copyBtn = e.currentTarget;
-  const preview = document.querySelector('.preview-text');
-  if (!preview) return;
-
-  const text = (preview.textContent || '').trim();
-  if (!text) return;
-
-  // Encode the text and color for the URL
-  const encodedText = encodeURIComponent(text);
-  const encodedColor = selectedGlowColor.substring(1); // Remove the '#'
-  // Construct the URL for the typing SVG service
-  const svgUrl = `https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=${encodedColor}&width=435&lines=${encodedText}`;
-  
-  // Create the full Markdown snippet
-  const markdownContent = `[!Typing SVG](https://git.io/typing-svg)`;
-  
-  navigator.clipboard.writeText(markdownContent).then(() => {
-    const originalText = copyBtn.textContent;
-    copyBtn.textContent = 'Copied!';
-    setTimeout(() => {
-      copyBtn.textContent = originalText;
-    }, 2000);
-  }).catch(err => {
-    console.error('Failed to copy: ', err);
-  });
-});
 });
